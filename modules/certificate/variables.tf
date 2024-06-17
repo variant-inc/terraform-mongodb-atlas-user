@@ -49,7 +49,7 @@ variable "is_ca" {
   default     = false
 }
 
-variable "literalSubject" {
+variable "literal_subject" {
   type        = string
   description = <<EOF
     The literalSubject field is exclusive with subject and commonName. It allows

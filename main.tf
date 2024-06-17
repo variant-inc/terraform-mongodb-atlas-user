@@ -58,4 +58,3 @@ module "certificate" {
 resource "kubernetes_manifest" "certificates" {
   manifest = yamlencode(module.certificate.certificate_data)
 }
-

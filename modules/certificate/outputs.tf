@@ -18,7 +18,7 @@ output "certificate_data" {
       duration       = var.duration
       renewBefore    = var.renew_before
       isCA           = var.is_ca
-      literalSubject = var.literalSubject
+      literalSubject = var.literal_subject
       private_key = {
         algorithm = var.private_key_algorithm
         encoding  = var.private_key_encoding
@@ -32,8 +32,4 @@ output "certificate_data" {
       }
     }
   }
-}
-
-output "secret_name" {
-  value = var.secret_name
 }
