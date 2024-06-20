@@ -1,3 +1,3 @@
 locals {
-  subject = "O=${var.organization},CN=${var.name}"
+  subject = "CN=${var.name},O=${var.organization}"
 }
