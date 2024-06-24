@@ -1,6 +1,6 @@
 ---
 # yamllint disable rule:line-length
-name: pre-commit
+name: Pre Commit
 on:       # yamllint disable-line rule:truthy
   push:
     branches:
@@ -8,7 +8,7 @@ on:       # yamllint disable-line rule:truthy
 permissions: read-all
 jobs:
   pre-commit:
-    name: Pre Commit
+    name: pre-commit
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
