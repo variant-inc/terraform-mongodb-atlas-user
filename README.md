@@ -43,5 +43,5 @@
 
 | Name | Description |
 |------|-------------|
-| <a name="output_username"></a> [username](#output\_username) | Atlas User |
+| <a name="output_id"></a> [id](#output\_id) | Atlas User id |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
