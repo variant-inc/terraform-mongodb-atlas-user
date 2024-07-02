@@ -35,12 +35,12 @@ resource "kubernetes_manifest" "certificate" {
     apiVersion = "cert-manager.io/v1"
     kind       = "Certificate"
     metadata = {
-      name      = var.name
+      name      = var.certificate_name
       namespace = var.namespace
       labels    = var.certificate_labels
     }
     spec = {
-      secretName = var.name
+      secretName = var.certificate_name
       commonName = var.name
       subject = {
         organizations = [var.organization]

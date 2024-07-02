@@ -28,7 +28,9 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_ca_secret_arn"></a> [ca\_secret\_arn](#input\_ca\_secret\_arn) | ARN of the secret containing issuer details | `string` | n/a | yes |
 | <a name="input_certificate_labels"></a> [certificate\_labels](#input\_certificate\_labels) | (Optional) Labels on certificate resource | `map(string)` | `{}` | no |
+| <a name="input_certificate_name"></a> [certificate\_name](#input\_certificate\_name) | (Required) Name of the certificate created | `string` | n/a | yes |
 | <a name="input_cluster"></a> [cluster](#input\_cluster) | (Required) Name of cluster that this user has access to | `string` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | (Required) Common name of certificate | `string` | n/a | yes |
 | <a name="input_namespace"></a> [namespace](#input\_namespace) | (Required) Namespace where certificate resource will be created | `string` | n/a | yes |

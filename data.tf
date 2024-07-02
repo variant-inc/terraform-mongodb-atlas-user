@@ -3,7 +3,7 @@ data "mongodbatlas_project" "project" {
 }
 
 data "aws_secretsmanager_secret" "certificate_secret" {
-  name = "${var.project_name}-${var.cluster}"
+  arn = var.ca_secret_arn
 }
 
 data "aws_secretsmanager_secret_version" "certificate_secret_data" {

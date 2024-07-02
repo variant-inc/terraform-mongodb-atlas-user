@@ -57,3 +57,13 @@ variable "certificate_labels" {
   description = "(Optional) Labels on certificate resource"
   default     = {}
 }
+
+variable "ca_secret_arn" {
+  type = string
+  description = "ARN of the secret containing issuer details"
+}
+
+variable "certificate_name" {
+  type        = string
+  description = "(Required) Name of the certificate created"
+}
