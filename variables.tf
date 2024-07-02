@@ -59,7 +59,7 @@ variable "certificate_labels" {
 }
 
 variable "ca_secret_arn" {
-  type = string
+  type        = string
   description = "ARN of the secret containing issuer details"
 }
 
