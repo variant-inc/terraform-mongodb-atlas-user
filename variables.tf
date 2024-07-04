@@ -52,13 +52,18 @@ variable "namespace" {
   description = "(Required) Namespace where certificate resource will be created"
 }
 
-variable "certificate_name" {
-  type        = string
-  description = "(Required) Name of the certificate created"
-}
-
 variable "certificate_labels" {
   type        = map(string)
   description = "(Optional) Labels on certificate resource"
   default     = {}
+}
+
+variable "ca_secret_arn" {
+  type        = string
+  description = "ARN of the secret containing issuer details"
+}
+
+variable "certificate_name" {
+  type        = string
+  description = "(Required) Name of the certificate created"
 }
