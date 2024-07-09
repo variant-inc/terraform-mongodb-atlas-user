@@ -51,6 +51,9 @@ resource "kubernetes_manifest" "certificate" {
         kind  = "Issuer"
       }
       usages = ["client auth", "digital signature"]
+      additionalOutputFormats = [
+        { type = "CombinedPEM" }
+      ]
     }
   }
   depends_on = [kubernetes_manifest.issuer]

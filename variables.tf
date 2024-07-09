@@ -31,6 +31,11 @@ variable "roles" {
                         the role applies to all collections in the database
     }
   EOF
+
+  validation {
+    condition     = alltrue([for role in var.roles : contains(["read", "readWrite"], role.name)])
+    error_message = "Each role must have a valid 'name' ('read' or 'readWrite')"
+  }
 }
 
 variable "tags" {
