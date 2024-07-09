@@ -39,12 +39,8 @@ variable "roles" {
 }
 
 variable "tags" {
-  type        = map(string)
-  description = <<EOF
-    Containing key-value pairs that tag and categorize the database user.
-    Each key and value has a maximum length of 255 characters.
-  EOF
-  default     = {}
+  type        = map(any)
+  description = "Tags to be applied to resources"
 }
 
 variable "cluster" {
@@ -55,12 +51,6 @@ variable "cluster" {
 variable "namespace" {
   type        = string
   description = "(Required) Namespace where certificate resource will be created"
-}
-
-variable "certificate_labels" {
-  type        = map(string)
-  description = "(Optional) Labels on certificate resource"
-  default     = {}
 }
 
 variable "ca_secret_arn" {

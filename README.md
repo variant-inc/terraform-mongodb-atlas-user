@@ -29,7 +29,6 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_ca_secret_arn"></a> [ca\_secret\_arn](#input\_ca\_secret\_arn) | ARN of the secret containing issuer details | `string` | n/a | yes |
-| <a name="input_certificate_labels"></a> [certificate\_labels](#input\_certificate\_labels) | (Optional) Labels on certificate resource | `map(string)` | `{}` | no |
 | <a name="input_certificate_name"></a> [certificate\_name](#input\_certificate\_name) | (Required) Name of the certificate created | `string` | n/a | yes |
 | <a name="input_cluster"></a> [cluster](#input\_cluster) | (Required) Name of cluster that this user has access to | `string` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | (Required) Common name of certificate | `string` | n/a | yes |
@@ -37,7 +36,7 @@
 | <a name="input_organization"></a> [organization](#input\_organization) | (Optional) Organization of the certificate | `string` | `"usxpress"` | no |
 | <a name="input_project_name"></a> [project\_name](#input\_project\_name) | (Required) The unique ID for the project to create the database user. | `string` | n/a | yes |
 | <a name="input_roles"></a> [roles](#input\_roles) | roles = {<br>      name = (Required) Name of the role to grant.<br>      database = (Required) Database on which the user has the specified role.<br>      collection = (Optional) Collection for which the role applies.<br>                        You can specify a collection for the read and readWrite roles.<br>                        If you do not specify a collection for read and readWrite,<br>                        the role applies to all collections in the database<br>    } | <pre>list(object({<br>    name       = string<br>    database   = string<br>    collection = optional(string, null)<br>  }))</pre> | n/a | yes |
-| <a name="input_tags"></a> [tags](#input\_tags) | Containing key-value pairs that tag and categorize the database user.<br>    Each key and value has a maximum length of 255 characters. | `map(string)` | `{}` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | Tags to be applied to resources | `map(any)` | n/a | yes |
 
 ## Outputs
 
