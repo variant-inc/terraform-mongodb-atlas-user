@@ -40,7 +40,7 @@ resource "kubernetes_manifest" "certificate" {
       labels    = var.certificate_labels
     }
     spec = {
-      secretName = var.certificate_name
+      secretName = "mongo-user-${var.certificate_name}"
       commonName = var.name
       subject = {
         organizations = [var.organization]
