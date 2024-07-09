@@ -44,4 +44,5 @@
 | Name | Description |
 |------|-------------|
 | <a name="output_id"></a> [id](#output\_id) | Atlas User id |
+| <a name="output_project_id"></a> [project\_id](#output\_project\_id) | project id |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
