@@ -1,6 +1,6 @@
 resource "kubernetes_secret" "tls_secret" {
   metadata {
-    name      = "tls-certificate-${var.name}"
+    name      = "issuer-cert-${var.name}"
     namespace = var.namespace
     labels    = var.tags
   }
@@ -42,7 +42,7 @@ resource "kubernetes_manifest" "certificate" {
       labels    = var.tags
     }
     spec = {
-      secretName = "mongo-user-${var.certificate_name}"
+      secretName = "m-u-${var.certificate_name}"
       commonName = var.name
       subject = {
         organizations = [var.organization]
