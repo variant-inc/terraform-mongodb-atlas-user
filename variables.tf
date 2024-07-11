@@ -42,6 +42,10 @@ variable "tags" {
   type        = map(any)
   description = "Tags to be applied to resources"
 }
+variable "labels" {
+  type        = map(any)
+  description = "Labels to be applied to k8s resources"
+}
 
 variable "cluster" {
   type        = string
