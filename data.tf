@@ -3,9 +3,11 @@ data "mongodbatlas_project" "project" {
 }
 
 data "aws_secretsmanager_secret" "certificate_secret" {
-  arn = var.ca_secret_arn
+  provider = aws.cross_account
+  arn      = var.ca_secret_arn
 }
 
 data "aws_secretsmanager_secret_version" "certificate_secret_data" {
+  provider  = aws.cross_account
   secret_id = data.aws_secretsmanager_secret.certificate_secret.id
 }

@@ -31,15 +31,20 @@ variable "roles" {
                         the role applies to all collections in the database
     }
   EOF
+
+  validation {
+    condition     = alltrue([for role in var.roles : contains(["read", "readWrite"], role.name)])
+    error_message = "Each role must have a valid 'name' ('read' or 'readWrite')"
+  }
 }
 
 variable "tags" {
-  type        = map(string)
-  description = <<EOF
-    Containing key-value pairs that tag and categorize the database user.
-    Each key and value has a maximum length of 255 characters.
-  EOF
-  default     = {}
+  type        = map(any)
+  description = "Tags to be applied to resources"
+}
+variable "labels" {
+  type        = map(any)
+  description = "Labels to be applied to k8s resources"
 }
 
 variable "cluster" {
@@ -50,12 +55,6 @@ variable "cluster" {
 variable "namespace" {
   type        = string
   description = "(Required) Namespace where certificate resource will be created"
-}
-
-variable "certificate_labels" {
-  type        = map(string)
-  description = "(Optional) Labels on certificate resource"
-  default     = {}
 }
 
 variable "ca_secret_arn" {

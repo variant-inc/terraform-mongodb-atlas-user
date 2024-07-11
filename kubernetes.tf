@@ -1,7 +1,8 @@
 resource "kubernetes_secret" "tls_secret" {
   metadata {
-    name      = "tls-certificate-${var.name}"
+    name      = "mongo-issuer-${var.name}"
     namespace = var.namespace
+    labels    = var.labels
   }
 
   type = "kubernetes.io/tls"
@@ -18,8 +19,9 @@ resource "kubernetes_manifest" "issuer" {
     apiVersion = "cert-manager.io/v1"
     kind       = "Issuer"
     metadata = {
-      name      = var.name
+      name      = "mongo-${var.name}"
       namespace = var.namespace
+      labels    = var.labels
     }
     spec = {
       ca = {
@@ -37,7 +39,7 @@ resource "kubernetes_manifest" "certificate" {
     metadata = {
       name      = var.certificate_name
       namespace = var.namespace
-      labels    = var.certificate_labels
+      labels    = var.labels
     }
     spec = {
       secretName = var.certificate_name
@@ -46,11 +48,14 @@ resource "kubernetes_manifest" "certificate" {
         organizations = [var.organization]
       }
       issuerRef = {
-        name  = var.name
+        name  = "mongo-${var.name}"
         group = "cert-manager.io"
         kind  = "Issuer"
       }
       usages = ["client auth", "digital signature"]
+      additionalOutputFormats = [
+        { type = "CombinedPEM" }
+      ]
     }
   }
   depends_on = [kubernetes_manifest.issuer]
