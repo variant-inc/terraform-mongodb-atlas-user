@@ -42,13 +42,13 @@ resource "kubernetes_manifest" "certificate" {
       labels    = var.labels
     }
     spec = {
-      secretName = "m-u-${var.certificate_name}"
+      secretName = var.certificate_name
       commonName = var.name
       subject = {
         organizations = [var.organization]
       }
       issuerRef = {
-        name  = var.name
+        name  = "mongo-${var.name}"
         group = "cert-manager.io"
         kind  = "Issuer"
       }
