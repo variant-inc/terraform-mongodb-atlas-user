@@ -31,6 +31,7 @@
 | <a name="input_ca_secret_arn"></a> [ca\_secret\_arn](#input\_ca\_secret\_arn) | ARN of the secret containing issuer details | `string` | n/a | yes |
 | <a name="input_certificate_name"></a> [certificate\_name](#input\_certificate\_name) | (Required) Name of the certificate created | `string` | n/a | yes |
 | <a name="input_cluster"></a> [cluster](#input\_cluster) | (Required) Name of cluster that this user has access to | `string` | n/a | yes |
+| <a name="input_labels"></a> [labels](#input\_labels) | Labels to be applied to k8s resources | `map(any)` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | (Required) Common name of certificate | `string` | n/a | yes |
 | <a name="input_namespace"></a> [namespace](#input\_namespace) | (Required) Namespace where certificate resource will be created | `string` | n/a | yes |
 | <a name="input_organization"></a> [organization](#input\_organization) | (Optional) Organization of the certificate | `string` | `"usxpress"` | no |
